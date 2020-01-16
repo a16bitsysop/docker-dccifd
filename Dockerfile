@@ -1,13 +1,27 @@
-FROM alpine:latest
+FROM alpine:3.11
+LABEL maintainer "Duncan Bellamy <dunk@denkimushi.com>"
 
-#COPY build-git.sh /usr/local/bin/
-RUN apk update && apk add --no-cache build-base curl && adduser -S -h /var/dcc _dcc && cd /tmp && \
-curl --connect-timeout 30 --max-time 600 -o dcc.tar.Z https://www.dcc-servers.net/dcc/source/dcc.tar.Z && \
-tar -xzf dcc.tar.Z && cd dcc-* && ./configure --disable-dccm --disable-server --with-uid=_dcc --with-max-db-memory=64 && \
-sed -i 's/DCC_UNIX/DCC_UNIX\n#include <sys\/types.h>/' include/dcc_types.h && make && make install && cd ../ && rm -Rf dcc*
+WORKDIR /tmp
+RUN apk add --update --no-cache build-base wget && \
+addgroup -S _dcc && adduser -S -h /var/dcc --ingroup _dcc _dcc && \
+wget https://www.dcc-servers.net/dcc/source/dcc.tar.Z && \
+tar -xzf dcc.tar.Z && cd dcc-* && \
+./configure --disable-dccm --disable-server --with-uid=_dcc --with-max-db-memory=64 && \
+sed -i 's+DCC_UNIX+DCC_UNIX\n#include <sys\/types.h>+g' include/dcc_types.h && \
+make && make install && cd ../ && rm -Rf dcc* && \
+mkdir /var/dcc/sock && chown _dcc:_dcc /var/dcc/sock && \
+sed -i -e 's+DCCM_LOG_AT=.*+DCCM_LOG_AT=NEVER+g' \
+-e 's+DCCM_REJECT_AT=.*+DCCM_REJECT_AT=MANY+g' \
+# listen to sock file 
+#-e 's+DCCIFD_ARGS="+DCCIFD_ARGS="-b -p /var/dcc/sock/dccifd +g' /var/dcc/dcc_conf
+# listen to port
+-e 's+DCCIFD_ARGS="+DCCIFD_ARGS="-b -p *,10045,127.0.0.1/32 +g' /var/dcc/dcc_conf
 
-#	run_sudo_command('ln -s /var/dcc/libexec/cron-dccd /etc/cron.daily/cron-dccd')
-#	run_sudo_command('ln -s /var/dcc/libexec/updatedcc /etc/cron.daily/updatedcc')
 
-#CMD ["/var/dcc/libexec/start-dccifd"]
-CMD ["/bin/sh"]
+# Run cron jobs clean every week, update every month
+RUN echo -e '@weekly    /var/dcc/libexec/cron-dccd\n\
+@monthly    /var/dcc/libexec/updatedcc\n\' > /etc/crontabs/root
+
+WORKDIR /var/dcc
+
+ENTRYPOINT ["sh", "-c", "{ crond -f & /var/dcc/libexec/start-dccifd; }"]
