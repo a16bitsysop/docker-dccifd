@@ -15,7 +15,7 @@ sed -i -e 's+DCCM_LOG_AT=.*+DCCM_LOG_AT=NEVER+g' \
 # listen to sock file 
 #-e 's+DCCIFD_ARGS="+DCCIFD_ARGS="-b -p /var/dcc/sock/dccifd +g' /var/dcc/dcc_conf
 # listen to port
--e 's+DCCIFD_ARGS="+DCCIFD_ARGS="-b -p *,10045,127.0.0.1/32 +g' /var/dcc/dcc_conf
+-e 's+DCCIFD_ARGS="+DCCIFD_ARGS="-b -p *,10045,172.0.0.0/8 +g' /var/dcc/dcc_conf
 
 
 # Run cron jobs clean every week, update every month
@@ -25,3 +25,10 @@ RUN echo -e '@weekly    /var/dcc/libexec/cron-dccd\n\
 WORKDIR /var/dcc
 
 ENTRYPOINT ["sh", "-c", "{ crond -f & /var/dcc/libexec/start-dccifd; }"]
+
+#run on container network (no need to expose ports on container network)
+#remote container use dccifd as hostname
+#docker container run --net MYNET --name dccifd -d a16bitsysop/dccifd
+
+#run without connecting to container network exposing ports
+#docker container run -p 10045:10045 --name dccifd -d a16bitsysop/dccifd
