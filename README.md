@@ -1,5 +1,5 @@
 # docker-dccifd
-Dockerfile to install dccifd as a docker container that accept connections on by port or sockfile depending on how it is run.
+Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker container that accept connections on by port or sockfile depending on how it is run.
 
 A cron job is also started to tidy the log files for messages, update script can be started as well but it will not auto update
 on a Alpine linux just yet.
