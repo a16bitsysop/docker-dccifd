@@ -28,6 +28,6 @@ ENTRYPOINT ["entrypoint.sh"]
 #run without connecting to container network exposing ports
 #docker container run -p 10045:10045 --name dccifd -d a16bitsysop/dccifd
 
-#run with sock file /var/log/dcc/sock/dccifd
+#run with sock file /var/dcc/sock/dccifd
 #docker container run --env SOCKET=yes --name dccifd -d a16bitsysop/dccifd
 
