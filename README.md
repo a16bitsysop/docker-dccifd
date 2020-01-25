@@ -1,6 +1,10 @@
 # docker-dccifd
 Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker container that accept connections on a port or sockfile depending on environment variables when it is run.
 
+Environment variable REMOTEIP is the allowed remote IP range, defaults to 172.16.0.0/12 if not set.
+
+Environment variable SOCKET makes dccifd listen to the /var/dcc/socket/dccifd socket file instead.
+
 A cron job is also started for the dcc user to tidy the log files for messages, update script can be started as well but it will not auto update
 on Alpine linux just yet.
 

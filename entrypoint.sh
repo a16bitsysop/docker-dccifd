@@ -1,8 +1,11 @@
 #!/bin/sh
-
+echo "Passed varaibles..."
+echo "REMOTEIP= $REMOTEIP"
+echo "SOCKET= $SOCKET"
+echo
 #If SOCKET set start listening to socket, otherwise start listen to *
-
-PORT="*,10045,172.0.0.0/8"
+[ -z "$REMOTEIP" ] && REMOTEIP="172.16.0.0/12"
+PORT="*,10045,$REMOTEIP"
 [ -n "$SOCKET" ] && PORT="/var/dcc/sock/dccifd"
 
 #edit dcc_conf so start-dccifd works
