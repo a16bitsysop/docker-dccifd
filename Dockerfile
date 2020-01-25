@@ -13,10 +13,8 @@ mkdir /var/dcc/sock && chown _dcc:_dcc /var/dcc/sock
 
 RUN apk del build-base
 
-# Run cron jobs clean every week, update every month
-RUN echo -e '@weekly    /var/dcc/libexec/cron-dccd\n\' > /etc/crontabs/root
-
-#@monthly    /var/dcc/libexec/updatedcc\n\' > /etc/crontabs/root
+# Run cron jobs clean every week
+RUN echo '@weekly /var/dcc/libexec/cron-dccd' | crontab -u _dcc -
 
 WORKDIR /usr/local/bin
 COPY entrypoint.sh ./
