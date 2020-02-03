@@ -20,7 +20,7 @@ To run without connecting to container network exposing ports (accessible from h
 
 To run with tmpfs volume for /var/dcc/log and allowed remote ip/subnet
 ```
-#docker container run --mount type=tmpfs,destination=/var/dcc/log -p 10045:10045 --env REMOTEIP=192.168.88.0/24 --name dccifd a16bitsysop/dccifd
+#docker container run --mount type=tmpfs,destination=/var/dcc/log -p 10045:10045 --env REMOTEIP=192.168.0.0/24 --name dccifd a16bitsysop/dccifd
 
 ```
 
