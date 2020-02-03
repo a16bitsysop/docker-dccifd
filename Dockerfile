@@ -32,4 +32,6 @@ COPY entrypoint.sh ./
 WORKDIR /var/dcc
 ENTRYPOINT [ "entrypoint.sh" ]
 
+VOLUME [ "/var/dcc/log" ]
+
 EXPOSE 10045
