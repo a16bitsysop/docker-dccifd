@@ -14,4 +14,9 @@ sed -i -e 's+DCCM_LOG_AT=.*+DCCM_LOG_AT=NEVER+g' \
 -e 's+DCCIFD_ARGS=.*+DCCIFD_ARGS="-SHELO -Smail_host -SSender -SList-ID -b -p '"$PORT"'"+g' \
 /var/dcc/dcc_conf
 
+chown dcc:dcc log sock
 sh -c "crond -f & /var/dcc/libexec/start-dccifd;"
+
+#use dccifd directly to avoid writing to docker container
+#sh -c "crond -f & ./libexec/dccifd -SHELO -Smail_host -SSender -SList-ID -b -p$PORT -tCMN,NEVER,MANY -l/var/dcc/log -Idcc;"
+
