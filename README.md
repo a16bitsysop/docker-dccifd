@@ -1,5 +1,5 @@
 # docker-dccifd
-Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker container that accept connections on a port or sockfile depending on environment variables when it is run.
+Alpine Based Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker container that accept connections on a port or sockfile depending on environment variables when it is run.
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
 [![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
