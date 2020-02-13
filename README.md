@@ -1,7 +1,7 @@
 # docker-dccifd
 Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker container that accept connections on a port or sockfile depending on environment variables when it is run.
 
-| Environment Variables |
+## Environment Variables
 | Name     | Desription                                               | Default               |
 | -------- | -------------------------------------------------------- | --------------------- |
 | REMOTEIP | allowed remote IP range                                  | 172.16.0.0/12         |
