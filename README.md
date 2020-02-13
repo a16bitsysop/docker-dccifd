@@ -3,6 +3,8 @@ Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker con
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
 [![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
+[![](https://images.microbadger.com/badges/image/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own version badge on microbadger.com")
 
 ## Github
 Github Repository: [https://github.com/a16bitsysop/docker-dccifd](https://github.com/a16bitsysop/docker-dccifd)
