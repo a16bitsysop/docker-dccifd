@@ -7,9 +7,11 @@ Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker con
 | REMOTEIP | allowed remote IP range                                  | 172.16.0.0/12         |
 | SOCKET   | makes dccifd listen to the /var/dcc/socket/dccifd socket | listen all interfaces |
 
+## Cron
 A cron job is also started for the dcc user to tidy the log files for messages, update script can be started as well but it will not auto update
 on Alpine linux just yet.
 
+## Examples
 To run on container network (no need to expose ports on container network) the remote containers use dccifd as hostname of server
 ```
 #docker container run --net MYNET --name dccifd --restart=unless-stopped -d a16bitsysop/dccifd
