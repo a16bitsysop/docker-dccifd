@@ -15,6 +15,7 @@ sed -i 's+DCC_UNIX+DCC_UNIX\n#include <sys\/types.h>+g' include/dcc_types.h && \
 make && make install && cd ../ && rm -Rf dcc* && \
 cd /var/dcc && mkdir sock && chown dcc:dcc sock && \
 apk del build-base && \
+crontab -d -u root && \
 echo '@daily /var/dcc/libexec/cron-dccd' | crontab -u dcc - && \
 chmod 755 /usr/bin/cdcc && \
 cd libexec && rm dccsight updatedcc uninstalldcc /usr/bin/dccproc
