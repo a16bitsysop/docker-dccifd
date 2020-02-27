@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "Starting dccifd at $(date +'%xx %X')"
+echo "Starting dccifd at $(date +'%x %X')"
 echo "Passed varaibles..."
 echo "REMOTEIP= $REMOTEIP"
 echo "SOCKET= $SOCKET"

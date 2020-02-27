@@ -3,7 +3,7 @@ LABEL maintainer "Duncan Bellamy <dunk@denkimushi.com>"
 
 WORKDIR /tmp
 RUN apk add --no-cache build-base && \
-addgroup -S dcc && adduser -S -h /var/dcc --ingroup dcc dcc && \
+addgroup -S dcc && adduser -S -h /var/dcc --gecos "DCC antispam" --ingroup dcc dcc && \
 wget https://www.dcc-servers.net/dcc/source/dcc.tar.Z && \
 tar -xzf dcc.tar.Z && cd dcc-* && \
 ./configure --disable-dccm --disable-server \
