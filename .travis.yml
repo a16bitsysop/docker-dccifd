@@ -3,7 +3,7 @@ dist: bionic
 language: minimal
 
 env:
-  - DOCKER_CLI_EXPERIMENTAL=enabled IMAGE_NAME=a16bitsysop/clamav APK=dcc-dccifd
+  - DOCKER_CLI_EXPERIMENTAL=enabled IMAGE_NAME=a16bitsysop/clamav APK=dcc
 
 before_script:
   - sudo apt-get install manpages-posix
@@ -18,7 +18,7 @@ before_script:
   - curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker buildx create --use
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker login -u "$DOCKER_USERNAME" --pasword-stdin < echo "$DOCKER_PASSWORD"
 
 script:
   - if [ -z "$NOW" ]; then for i in {1..15}; do sleep 1m; echo "waiting $i mins"; done; fi
