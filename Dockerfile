@@ -1,7 +1,8 @@
 FROM alpine:3.11
 LABEL maintainer "Duncan Bellamy <dunk@denkimushi.com>"
 
-RUN apk add dcc-dccifd --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/
+RUN sed -i -e 's/v[[:digit:]]\..*\//edge\//g' /etc/apk/repositories && \
+apk add --no-cache dcc-dccifd
 
 WORKDIR /usr/local/bin
 COPY entrypoint.sh ./

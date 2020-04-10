@@ -7,7 +7,7 @@ env:
 
 before_script:
   - sudo apt-get install manpages-posix
-  - VER=$(docker container run --rm alpine:edge sh -c "echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories; apk update > /dev/null; apk list "$APK" | cut -d'-' -f 2")
+  - VER=$(docker container run --rm alpine:edge sh -c "apk update > /dev/null; apk info -s "$APK" | sed -nr 's+$APK-(.*) install.*+\1+p';")
   - VER="$VER"-alpine"$(docker container run --rm alpine cat /etc/alpine-release)"
   - TAG="-t $IMAGE_NAME:$VER"
   - |
