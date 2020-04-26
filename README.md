@@ -11,7 +11,7 @@ Github Repository: [https://github.com/a16bitsysop/docker-dccifd](https://github
 ## Environment Variables
 | Name     | Desription                                               | Default               |
 | -------- | -------------------------------------------------------- | --------------------- |
-| REMOTEIP | allowed remote IP range                                  | 172.16.0.0/12         |
+| REMOTEIP | allowed remote IP range, "swarm" allows all ips          | 172.16.0.0/12         |
 | SOCKET   | makes dccifd listen to the /var/dcc/socket/dccifd socket | listen all interfaces |
 
 ## Cron
