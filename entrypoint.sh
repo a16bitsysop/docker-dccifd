@@ -4,7 +4,7 @@ echo "Passed varaibles..."
 echo "REMOTEIP= $REMOTEIP"
 echo "SOCKET= $SOCKET"
 echo
-#If SOCKET set start listening to socket, otherwise start listen to *
+#If SOCKET set start listening to socket, otherwise start listen to passed ip or 172.16.0.0/12
 if [ -z "$REMOTEIP" ]
 then
   REMOTEIP="172.16.0.0/12"
@@ -17,7 +17,6 @@ PORT="*,10045,$REMOTEIP"
 if [ -n "$SOCKET" ]
 then
  	PORT="/var/dcc/sock/dccifd"
-	mkdir sock
  	chown dcc:dcc sock
 fi
 #edit dcc_conf so start-dccifd works
