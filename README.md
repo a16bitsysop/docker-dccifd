@@ -13,6 +13,7 @@ Github Repository: [https://github.com/a16bitsysop/docker-dccifd](https://github
 | -------- | -------------------------------------------------------- | --------------------- |
 | REMOTEIP | allowed remote IP range, "swarm" allows all ips          | 172.16.0.0/12         |
 | SOCKET   | makes dccifd listen to the /var/dcc/socket/dccifd socket | listen all interfaces |
+| TIMEZONE | Timezone to use inside the container, eg Europe/London   | unset                 |
 
 ## Cron
 A cron job is also started for the dcc user to tidy the log files for messages, update script can be started as well but it will not auto update
