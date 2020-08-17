@@ -2,26 +2,9 @@
 echo "Passed varaibles..."
 echo "REMOTEIP= $REMOTEIP"
 echo "SOCKET= $SOCKET"
-echo '$TIMEZONE=' $TIMEZONE
-echo
 
-if [ -n "$TIMEZONE" ]
-then
-  echo "Waiting for DNS"
-  ping -c1 -W60 google.com || ping -c1 -W60 www.google.com || ping -c1 -W60 google-public-dns-b.google.com
-  apk add --no-cache tzdata
-  if [ -f /usr/share/zoneinfo/"$TIMEZONE" ]
-  then
-    echo "Setting timezone to $TIMEZONE"
-    cp /usr/share/zoneinfo/"$TIMEZONE" /etc/localtime
-    echo "$TIMEZONE" > /etc/timezone
-  else
-    echo "$TIMEZONE does not exist"
-  fi
-  apk del tzdata
-fi
+set-timezone.sh dccifd
 
-echo "Starting dccifd at $(date +'%x %X')"
 #If SOCKET set start listening to socket, otherwise start listen to passed ip or 172.16.0.0/12
 if [ -z "$REMOTEIP" ]
 then

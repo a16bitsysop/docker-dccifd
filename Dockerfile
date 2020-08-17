@@ -5,7 +5,7 @@ RUN apk add --no-cache dcc-dccifd \
 && mkdir /var/dcc/sock && chown dcc:dcc /var/dcc/sock
 
 WORKDIR /usr/local/bin
-COPY entrypoint.sh ./
+COPY travis-helpers/set-timezone.sh entrypoint.sh ./
 WORKDIR /var/dcc
 
 ENTRYPOINT [ "entrypoint.sh" ]
