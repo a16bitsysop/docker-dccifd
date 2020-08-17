@@ -11,7 +11,7 @@ before_script:
       MY_VER="$(version.py -d $IMAGE_NAME)"
       echo "Alpine Version $VER"
       echo "Docker Version $MY_VER"
-      if [-z "$NOW"] && [ -n "$MY_VER" ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
+      if [ -z "$NOW" ] && [ -n "$MY_VER" ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
 
 script:
   - docker-test.sh || travis_terminate 1
