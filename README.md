@@ -37,6 +37,6 @@ on Alpine linux just yet.
 ```
 
 **To run using the sock file**
-```
+```bash
 #docker container run --env SOCKET=yes --name dccifd --restart=unless-stopped -d a16bitsysop/dccifd
 ```
