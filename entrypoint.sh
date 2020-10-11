@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "Passed varaibles..."
-echo "REMOTEIP= $REMOTEIP"
-echo "SOCKET= $SOCKET"
+echo "\$REMOTEIP= $REMOTEIP"
+echo "\$SOCKET= $SOCKET"
 
 set-timezone.sh dccifd
 

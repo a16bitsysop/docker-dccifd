@@ -1,6 +1,7 @@
 FROM alpine:3.12
-LABEL maintainer "Duncan Bellamy <dunk@denkimushi.com>"
+LABEL maintainer="Duncan Bellamy <dunk@denkimushi.com>"
 
+# hadolint ignore=DL3018
 RUN apk add --no-cache dcc-dccifd \
 && mkdir /var/dcc/sock && chown dcc:dcc /var/dcc/sock
 

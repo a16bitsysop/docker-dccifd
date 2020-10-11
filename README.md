@@ -3,8 +3,8 @@ Alpine Based Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
 [![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
-[![](https://images.microbadger.com/badges/version/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/commit/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own commit badge on microbadger.com")
+[![Version](https://images.microbadger.com/badges/version/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own version badge on microbadger.com")
+[![Commit](https://images.microbadger.com/badges/commit/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own commit badge on microbadger.com")
 
 ## Github
 Github Repository: [https://github.com/a16bitsysop/docker-dccifd](https://github.com/a16bitsysop/docker-dccifd)
@@ -22,17 +22,17 @@ on Alpine linux just yet.
 
 ## Examples
 **To run on container network (no need to expose ports on container network) the remote containers use dccifd as hostname of server**
-```
+```bash
 #docker container run --net MYNET --name dccifd --restart=unless-stopped -d a16bitsysop/dccifd
 ```
 
 **To run without connecting to container network exposing ports (accessible from host network)**
-```
+```bash
 #docker container run -p 10045:10045 --name dccifd --restart=unless-stopped -d a16bitsysop/dccifd
 ```
 
 **To run with tmpfs volume for /var/dcc/log and allowed remote ip/subnet**
-```
+```bash
 #docker container run --mount type=tmpfs,destination=/tmp --mount type=tmpfs,destination=/var/dcc/home -p 10045:10045 --env REMOTEIP=192.168.0.0/24 --name dccifd -d a16bitsysop/dccifd
 ```
 

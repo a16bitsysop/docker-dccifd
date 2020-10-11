@@ -1,7 +1,8 @@
 FROM alpine:3.11
-LABEL maintainer "Duncan Bellamy <dunk@denkimushi.com>"
+LABEL maintainer="Duncan Bellamy <dunk@denkimushi.com>"
 
 WORKDIR /tmp
+# hadolint ignore=DL3018
 RUN apk add --no-cache build-base && \
 addgroup -S dcc && adduser -S -h /var/dcc --gecos "DCC antispam" --ingroup dcc dcc && \
 wget https://www.dcc-servers.net/dcc/source/dcc.tar.Z && \
