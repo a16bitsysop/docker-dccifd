@@ -2,7 +2,7 @@ FROM alpine:3.13
 LABEL maintainer="Duncan Bellamy <dunk@denkimushi.com>"
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache dcc-dccifd \
+RUN apk add -u --no-cache dcc-dccifd \
 && mkdir /var/dcc/sock && chown dcc:dcc /var/dcc/sock
 
 WORKDIR /usr/local/bin
