@@ -1,10 +1,10 @@
 # docker-dccifd
 Alpine Based Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker container that accept connections on a port or sockfile depending on environment variables when it is run.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
-[![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/dccifd.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dccifd/)
-[![Version](https://images.microbadger.com/badges/version/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own version badge on microbadger.com")
-[![Commit](https://images.microbadger.com/badges/commit/a16bitsysop/dccifd.svg)](https://microbadger.com/images/a16bitsysop/dccifd "Get your own commit badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dccifd.svg?style=plastic)](https://hub.docker.com/r/a16bitsysop/dccifd/)
+[![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/dccifd.svg?style=plastic)](https://hub.docker.com/r/a16bitsysop/dccifd/)
+[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/a16bitsysop/dccifd/latest?style=plastic)](https://hub.docker.com/r/a16bitsysop/dccifd/)
+[![Github SHA](https://img.shields.io/badge/dynamic/json?style=plastic&color=orange&label=Github%20SHA&query=object.sha&url=https%3A%2F%2Fapi.github.com%2Frepos%2Fa16bitsysop%2Fdocker-dccifd%2Fgit%2Frefs%2Fheads%2Fmaster)](https://github.com/a16bitsysop/docker-dccifd)
 [![GitHub Super-Linter](https://github.com/a16bitsysop/docker-dccifd/workflows/Super-Linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 ## Github
