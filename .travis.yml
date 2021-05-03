@@ -16,4 +16,3 @@ before_script:
 script:
   - docker-test.sh || travis_terminate 1
   - docker-build.sh "$VER" "$ALP_VER" "$APK_VER"
-  - curl -X POST "https://hooks.microbadger.com/images/$IMAGE_NAME/$WEBHOOK"
