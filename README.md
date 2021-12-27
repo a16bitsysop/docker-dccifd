@@ -1,4 +1,7 @@
 # docker-dccifd
+
+This repository has moved to https://gitlab.com/container-email/dccifd
+
 Alpine Based Dockerfile to install [dccifd](https://www.dcc-servers.net/dcc/) as a docker container that accept connections on a port or sockfile depending on environment variables when it is run.
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dccifd.svg?style=plastic)](https://hub.docker.com/r/a16bitsysop/dccifd/)
